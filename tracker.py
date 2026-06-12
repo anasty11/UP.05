@@ -23,9 +23,10 @@ data = load()
 
 # Напитки и очки
 DRINKS = {"💧 Вода": 10, "🍵 Чай": 5, "☕ Кофе": 5, "🧃 Сок": 5, "🥛 Молоко": 5}
+DRINKS = {"Вода": 10, "Чай": 5, "Кофе": 5, "Сок": 5, "Молоко": 5}
 VOLUMES = [100, 150, 200, 250, 300, 500]
 
-# ========== ФУНКЦИИ ==========
+# ФУНКЦИИ 
 def get_norm():
     p = data["profile"]
     if p["manual_norm"] > 0:
@@ -123,7 +124,7 @@ def get_chart_data(period):
             totals.append(total)
         return months, totals
 
-# ========== ГЛАВНОЕ ОКНО ==========
+# ГЛАВНОЕ ОКНО
 class App:
     def __init__(self, root):
         self.root = root
@@ -185,7 +186,7 @@ class App:
     def stats(self):
         StatsWindow(self.root)
 
-# ========== ОКНО ДОБАВЛЕНИЯ ==========
+# ОКНО ДОБАВЛЕНИЯ
 class AddWindow:
     def __init__(self, parent, refresh):
         self.refresh = refresh
@@ -226,7 +227,7 @@ class AddWindow:
         self.win.destroy()
         self.refresh()
 
-# ========== ОКНО ИСТОРИИ ==========
+# ОКНО ИСТОРИИ
 class HistoryWindow:
     def __init__(self, parent, refresh):
         self.refresh = refresh
@@ -273,7 +274,7 @@ class HistoryWindow:
             self.refresh()
             self.load()
 
-# ========== ОКНО НАСТРОЕК ==========
+# ОКНО НАСТРОЕК
 class SettingsWindow:
     def __init__(self, parent, refresh):
         self.refresh = refresh
@@ -324,7 +325,7 @@ class SettingsWindow:
         except:
             messagebox.showerror("Ошибка", "Введите корректные значения")
 
-# ========== ОКНО СТАТИСТИКИ ==========
+# ОКНО СТАТИСТИКИ
 class StatsWindow:
     def __init__(self, parent):
         self.win = tk.Toplevel(parent)
@@ -377,7 +378,7 @@ class StatsWindow:
         self.days_lbl.config(text=f"Дни с нормой: {get_days_norm()}")
         self.streak_lbl.config(text=f"Макс серия: {get_streak()} дней")
 
-# ========== ЗАПУСК ==========
+# ЗАПУСК
 if __name__ == "__main__":
     root = tk.Tk()
     App(root)
