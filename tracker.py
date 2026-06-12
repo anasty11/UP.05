@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-# ========== ДАННЫЕ ==========
+#ДАННЫЕ
 DATA_FILE = "data.json"
 
 def load():
