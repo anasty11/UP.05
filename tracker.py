@@ -1,3 +1,19 @@
+import json
+import os
+
+DATA_FILE = "data.json"
+
+def load():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {"profile": {"weight": 70, "gender": "Мужской", "activity": "Средняя", "manual_norm": 0, "points": 0}, "log": {}}
+
+def save():
+    with open(DATA_FILE, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+data = load()
 import tkinter as tk
 
 class App:
